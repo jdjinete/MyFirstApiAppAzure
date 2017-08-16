@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyFirstApiAppAzure.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -12,7 +13,9 @@ namespace MyFirstApiAppAzure.Controllers
         // GET api/values
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            DBPRUEBAEntities a = new DBPRUEBAEntities();
+            return new string[] {  a.usp_SelectProducts().FirstOrDefault().Nombre,a.usp_SelectProducts().FirstOrDefault().SKU};
+            //return new string[] { "value1", "value2" };
         }
 
         // GET api/values/5
